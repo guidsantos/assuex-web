@@ -47,8 +47,8 @@ export const LogoContainer = styled.div`
 export const ButtonsContainer = styled.div`
   display: flex;
   width: 22rem;
-  flex-direction: row;
-  margin-top: 1rem;
+  flex-direction: column;
+  margin: 1rem 0;
 
   align-items: center;
   justify-content: space-between;
@@ -56,6 +56,7 @@ export const ButtonsContainer = styled.div`
   button {
     width: 10rem;
     height: 3rem;
+    margin: 1rem;
     border-radius: 10px;
     border: 0;
     background-color: #49be25;
