@@ -6,7 +6,8 @@ export const Content = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  background-color: #083180;
 `;
 
 export const LoginBox = styled.form`
