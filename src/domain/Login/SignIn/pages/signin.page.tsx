@@ -30,7 +30,7 @@ const SignIn: React.FC = () => {
         email: event.currentTarget.elements.email.value,
         password: event.currentTarget.elements.password.value,
       });
-      if(!!user){
+      if(user){
         navigate("/home");
       }
       return false;
