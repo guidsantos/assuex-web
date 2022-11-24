@@ -1,5 +1,5 @@
-import { Component } from "react";
-import { Navigate, Route as RouteDom, RouteProps } from "react-router-dom";
+import React from "react";
+import { Navigate, RouteProps } from "react-router-dom";
 
 import { useAuth } from "../hooks/Auth.hook";
 
