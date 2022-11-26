@@ -5,8 +5,8 @@ import {QRCodeSVG} from 'qrcode.react';
 const QRCode: React.FC = () => {
     const apiresponse = {
         token: 'www.google.com.br',
-        name: 'Fred',
-        linha: 'Campinas - Jundiai'
+        name: 'Nome do passageiro',
+        linha: 'Linha de interesse'
     }
 
     return (

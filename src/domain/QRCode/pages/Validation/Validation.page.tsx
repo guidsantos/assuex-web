@@ -15,13 +15,16 @@ const Validation: React.FC = () => {
       );
 
     const apiresponse = {
-        linha: 'Campinas - Jundiai',
+        linha: 'Linha de interesse',
         passageiros: [{
-            name: 'Fred',
+            name: 'Passageiro 1',
             horario: '10:50'
         }, {
-            name: 'Guido',
+            name: 'Passageiro 2',
             horario: '14:30'
+        }, {
+            name: 'Passageiro 3',
+            horario: '19:00'
         }]
     }
 
