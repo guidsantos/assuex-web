@@ -11,11 +11,11 @@ export const Card = styled.form`
   color: #fff;
   padding: 1rem;
   border-radius: 10px;
-  h1{
+  h1 {
     margin: 0.5rem 0 5rem;
     font-size: 35px;
   }
-  p{
+  p {
     margin: 1rem 0 1rem;
     font-size: 20px;
   }
@@ -26,28 +26,36 @@ export const Card = styled.form`
     padding: 1rem;
     border-radius: 6px;
     border: 0;
+    @media screen and (max-width: 780px) {
+      width: 13rem;
+    }
   }
   button {
     width: 10rem;
     height: 2.5rem;
     border-radius: 10px;
     border: 0;
-    background-color: #028A0F;
+    background-color: #028a0f;
     color: #fff;
   }
-  button:hover{
-    background-color: #03AC13;
+  button:hover {
+    background-color: #03ac13;
     transition: 0.5s;
   }
 `;
 
 export const Content = styled.div`
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    padding: 3rem;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 3rem;
+
+  @media screen and (max-width: 780px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
 `;
 
 export const Histcard = styled.div`
@@ -63,8 +71,13 @@ export const Histcard = styled.div`
   padding: 1rem;
   border-radius: 10px;
   margin-left: 5rem;
-  h1{
+  h1 {
     font-size: 25px;
+  }
+
+  @media screen and (max-width: 780px) {
+    margin: 0;
+    width: 100%;
   }
 `;
 

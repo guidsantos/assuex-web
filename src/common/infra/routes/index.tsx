@@ -17,9 +17,18 @@ export const RoutesFC: React.FC = () => {
         path="/home"
         element={<AuthRoute isPrivate={true} outlet={<Home />} />}
       />
-      <Route path="/qrcode" element={<QRCode />} />
-      <Route path="/validation" element={<Validation />} />
-      <Route path="/profile" element={<Profile />} />
+      <Route
+        path="/qrcode"
+        element={<AuthRoute isPrivate={true} outlet={<QRCode />} />}
+      />
+      <Route
+        path="/validation"
+        element={<AuthRoute isPrivate={true} outlet={<Validation />} />}
+      />
+      <Route
+        path="/profile"
+        element={<AuthRoute isPrivate={true} outlet={<Profile />} />}
+      />
     </Routes>
   );
 };
