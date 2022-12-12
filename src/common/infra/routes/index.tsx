@@ -7,6 +7,7 @@ import { Route as AuthRoute } from "./Router.component";
 import QRCode from "../../../domain/QRCode/pages/QRcode/QRCode.pages";
 import Validation from "../../../domain/QRCode/pages/Validation/Validation.page";
 import Profile from "../../../domain/Profile/Profile.pages";
+import Linhas from "../../../domain/Linhas/pages/Linhas/linhas.page";
 
 export const RoutesFC: React.FC = () => {
   return (
@@ -28,6 +29,10 @@ export const RoutesFC: React.FC = () => {
       <Route
         path="/profile"
         element={<AuthRoute isPrivate={true} outlet={<Profile />} />}
+      />
+      <Route
+        path="/lines"
+        element={<AuthRoute isPrivate={true} outlet={<Linhas />} />}
       />
     </Routes>
   );
