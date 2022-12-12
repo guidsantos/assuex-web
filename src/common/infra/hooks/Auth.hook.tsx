@@ -36,7 +36,7 @@ const AuthProvider: React.FC<Props> = ({ children }) => {
   const [data, setData] = useState<AuthState>(() => {
     const token = localStorage.getItem("@Assuex:token");
     const user = localStorage.getItem("@Assuex:user");
-
+    
     if (token && user) {
       api.defaults.headers.authorization = `Bearer ${token}`;
 

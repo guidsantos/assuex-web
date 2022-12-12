@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Header from "../../common/components/header/header.component";
-import api from "../../common/infra/services/api";
 import {
   Content,
   NavBarContainer,

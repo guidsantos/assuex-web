@@ -7,14 +7,13 @@ import {
   CardContainer,
   CardGrid,
   Content,
-  EditButton,
+  AddLineButton,
   HeadContent,
-} from "./linhas.styles";
+} from "./lines-edit.styles";
 
-import editIcon from "../../../../common/assets/edit-icon.svg";
-import { Link } from "react-router-dom";
+import {ReactComponent as PlusIcon} from "../../../../common/assets/plus-icon.svg";
 
-const Linhas: React.FC = () => {
+const LinesEdit: React.FC = () => {
   const apiResponse = [
     {
       coordName: "Luiz Claudio",
@@ -38,6 +37,10 @@ const Linhas: React.FC = () => {
       bus: "13601",
     },
   ] as ILineInfo[];
+
+  const addLine = () => {
+    console.log("adicionar linha");
+  };
   return (
     <>
       <Header />
@@ -46,14 +49,9 @@ const Linhas: React.FC = () => {
           paths={[
             { path: "/home", label: "Home" },
             { path: "/lines", label: "Linhas" },
+            { path: "/lines/edit", label: "Editar linhas" },
           ]}
         />
-        <Link to="edit" style={{textDecoration: "none",color:"#000"}}>
-        <EditButton>
-          <img src={editIcon} />
-          <p>Edite as linhas</p>
-        </EditButton>
-        </Link>
       </HeadContent>
       <Content>
         <CardGrid>
@@ -65,10 +63,18 @@ const Linhas: React.FC = () => {
               <LineInfoCard data={i} />
             </CardContainer>
           ))}
+          <CardContainer>
+            <AddLineButton>
+              <button onClick={() => addLine()}>
+                <PlusIcon />
+                <p>Adicione uma linhas</p>
+              </button>
+            </AddLineButton>
+          </CardContainer>
         </CardGrid>
       </Content>
     </>
   );
 };
 
-export default Linhas;
+export default LinesEdit;

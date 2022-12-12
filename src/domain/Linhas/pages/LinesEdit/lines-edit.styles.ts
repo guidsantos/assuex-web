@@ -12,12 +12,16 @@ export const CardGrid = styled.div`
   width: 100%;
   padding: 3rem;
 
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
 `;
 
 export const CardContainer = styled.div`
   width: 40rem;
   height: 15rem;
+  margin 4rem;
+
+  align-items: center;
+  justify-content: center;
 `;
 
 export const HeadContent = styled.div`
@@ -29,20 +33,25 @@ export const HeadContent = styled.div`
   padding: 2rem;
 `;
 
-export const EditButton = styled.div`
+export const AddLineButton = styled.div`
   display: flex;
   flex-direction: row;
-  width: 14rem;
+  width: 80%;
+  height: 100%;
 
   justify-content: center;
   align-items: center;
 
-  p {
-    margin-left: 0.5rem;
-    font-weight: 500;
+  button {
+    border: none;
+    background: none;
+    p {
+      margin: 1.5rem;
+      font-weight: 600;
+    }
   }
 
-  :hover {
+  button:hover {
     color: #444;
   }
 `;
