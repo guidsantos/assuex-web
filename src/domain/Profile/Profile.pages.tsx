@@ -1,4 +1,5 @@
 import React, { useCallback, useRef } from "react";
+import Breadcrumb from "../../common/components/breadcrumb/breadcrumb.component";
 import Header from "../../common/components/header/header.component";
 import { Card, Content, User, Body } from "./Profile.style";
 
@@ -28,6 +29,7 @@ const Profile: React.FC = () => {
   return (
     <>
       <Header />
+      <Breadcrumb paths={[{path:"/home", label: "Home"}, {path:"/profile", label: "Profile"}]} />
       <Body>
         <Content>
           <User>
