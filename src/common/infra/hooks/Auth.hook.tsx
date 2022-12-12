@@ -1,10 +1,12 @@
 import React, { createContext, useCallback, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 
 interface User {
   id: string;
   name: string;
   email: string;
+  type: string;
 }
 
 interface AuthState {
@@ -92,7 +94,7 @@ function useAuth(): AuthContextData {
   const context = useContext(AuthContext);
 
   if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
+    throw new Error("useAuth must be used within an AuthProvider");
   }
 
   return context;
