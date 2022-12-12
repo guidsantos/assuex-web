@@ -20,7 +20,6 @@ const SignIn: React.FC = () => {
   const formRef = useRef(null);
   const navigate = useNavigate();
 
-
   const { signIn, user } = useAuth();
 
   const handleSubmit = useCallback(
@@ -30,9 +29,8 @@ const SignIn: React.FC = () => {
         email: event.currentTarget.elements.email.value,
         password: event.currentTarget.elements.password.value,
       });
-      if(user){
-        navigate("/home");
-      }
+
+      navigate("/home");
       return false;
     },
     [signIn]
@@ -47,9 +45,20 @@ const SignIn: React.FC = () => {
           </LogoContainer>
           <input name="email" placeholder="email" />
           <input name="password" placeholder="password" type="password" />
+
           <ButtonsContainer>
             <button type="submit">Login</button>
-            <Link to="/signup">Cadastre-se</Link>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                gap: "0.8rem",
+                color: "#fff",
+              }}
+            >
+              <p>Não possue conta?</p>
+              <Link to="/signup">Cadastre-se</Link>
+            </div>
           </ButtonsContainer>
         </LoginBox>
       </Content>

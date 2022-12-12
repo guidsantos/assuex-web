@@ -15,8 +15,11 @@ import {
 import busIcon from "../../common/assets/bus-icon.svg";
 import idIcon from "../../common/assets/id-icon.svg";
 import profileIcon from "../../common/assets/profile-icon.svg";
+import { useAuth } from "../../common/infra/hooks/Auth.hook";
 
 const Home: React.FC = () => {
+  const { user } = useAuth();
+
   return (
     <>
       <Header />
@@ -31,6 +34,17 @@ const Home: React.FC = () => {
               </TextContainer>
             </NavCard>
           </Link>
+          {user.type !== "PASSAGER" && (
+            <Link to="/validation">
+              <NavCard>
+                <img src={idIcon} />
+                <TextContainer>
+                  <p className="title">Validar QRcode</p>
+                  <p className="sub-title">Valide os qrcodes dos passageiros</p>
+                </TextContainer>
+              </NavCard>
+            </Link>
+          )}
           <Link to="/qrcode">
             <NavCard>
               <img src={idIcon} />

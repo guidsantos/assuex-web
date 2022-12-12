@@ -49,13 +49,13 @@ export const ButtonsContainer = styled.div`
   display: flex;
   width: 22rem;
   flex-direction: column;
-  margin: 1rem 0;
+  margin: 0 0;
 
   align-items: center;
   justify-content: space-between;
 
   button {
-    width: 10rem;
+    width: 15rem;
     height: 3rem;
     margin: 1rem;
     border-radius: 10px;
@@ -68,11 +68,16 @@ export const ButtonsContainer = styled.div`
     background-color: rgb(73, 180, 37, 0.9);
   }
 
+  p {
+    font-size: 15px;
+  }
+ 
   a {
     display: block;
     color: #fff;
+    font-size: 15px;
     text-decoration: none;
-    margin-right: 1rem;
+    margin-right: 1rem; 
   }
 
   a:hover {

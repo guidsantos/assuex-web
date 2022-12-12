@@ -11,30 +11,25 @@ import React, { useCallback, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signUp } from "../hooks/signup.hook";
 
-interface ISignUpFormData {
-  email: String;
-  password: String;
-}
-
 const SignUp: React.FC = () => {
   const formRef = useRef(null);
   const navigate = useNavigate();
 
-  const handleSubmit = useCallback(
-    async (event: any) => {
-      event.preventDefault();
-      const response = await signUp({
-        name: event.currentTarget.elements.name.value,
-        email: event.currentTarget.elements.email.value,
-        password: event.currentTarget.elements.password.value,
-      });
-      if(!!response){
-        navigate("/signin");
-      }
-      return false;
-    },
-    []
-  );
+  const handleSubmit = useCallback(async (event: any) => {
+    event.preventDefault();
+    const response = await signUp({
+      name: event.currentTarget.elements.name.value,
+      last_name: event.currentTarget.elements.last_name.value,
+      cpf: event.currentTarget.elements.cpf.value,
+      phone: event.currentTarget.elements.phone.value,
+      email: event.currentTarget.elements.email.value,
+      password: event.currentTarget.elements.password.value,
+    });
+    if (!!response) {
+      navigate("/signin");
+    }
+    return false;
+  }, []);
 
   return (
     <>
@@ -43,9 +38,12 @@ const SignUp: React.FC = () => {
           <LogoContainer>
             <img src={logo} alt="assuex logo" />
           </LogoContainer>
-          <input name="name" placeholder="name" />
-          <input name="email" placeholder="email" />
-          <input name="password" placeholder="password" type="password" />
+          <input name="name" placeholder="Nome" />
+          <input name="last_name" placeholder="Sobrenome" />
+          <input name="cpf" placeholder="CPF" />
+          <input name="phone" placeholder="Telefone" />
+          <input name="email" placeholder="Email" />
+          <input name="password" placeholder="Senha" type="password" />
           <ButtonsContainer>
             <button type="submit">Cadastrar</button>
             <Link to="/signin">Voltar</Link>
