@@ -10,7 +10,7 @@ export const Card = styled.form`
   color: #fff;
   padding: 1rem;
   border-radius: 10px;
-  margin: 0 5rem;
+  margin: 0 0 0 6rem;
 
   button {
     width: 20rem;
@@ -20,8 +20,8 @@ export const Card = styled.form`
     border: 0;
     background-color: #49be25;
     color: #fff;
-    @media screen and (max-width: 780px) {
-      width: 10rem;
+    @media screen and (max-width: 880px) {
+      width: 90%;
       height: 3rem;
       margin: 1rem 0;
     }
@@ -31,6 +31,10 @@ export const Card = styled.form`
     background-color: rgb(73, 180, 37, 0.9);
   }
 
+  div {
+    width: 100%;
+  }
+
   input {
     width: 20rem;
     height: 3rem;
@@ -38,8 +42,8 @@ export const Card = styled.form`
     padding: 1rem;
     border-radius: 6px;
     border: 0;
-    @media screen and (max-width: 780px) {
-      width: 10rem;
+    @media screen and (max-width: 880px) {
+      width: 90%;
       height: 3rem;
       margin: 1rem 0;
     }
@@ -52,7 +56,7 @@ export const Card = styled.form`
   }
 
   @media screen and (max-width: 980px) {
-    margin: 1rem 0;
+    margin: 1rem 0 0 4rem;
     align-items: center;
   }
 `;
@@ -125,7 +129,7 @@ export const Content = styled.div`
   @media screen and (max-width: 780px) {
     flex-direction: column;
     width: 95%;
-    padding: 1rem;
+    padding: 4rem 0 0;
     align-items: center;
   }
 `;

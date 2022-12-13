@@ -6,7 +6,7 @@ import SignUp from "../../../domain/Login/SignUp/pages/signup.page";
 import { Route as AuthRoute } from "./Router.component";
 import QRCode from "../../../domain/QRCode/pages/QRcode/QRCode.pages";
 import Validation from "../../../domain/QRCode/pages/Validation/Validation.page";
-import Profile from "../../../domain/Profile/Profile.pages";
+import Profile from "../../../domain/Profile/pages/Profile.pages";
 import LinhasPage from "../../../domain/Linhas/pages/Linhas/linhas.page";
 import LinesEditPage from "../../../domain/Linhas/pages/LinesEdit/lines-edit.page";
 import LineStopPointsPage from "../../../domain/Linhas/pages/LineStopPoints/line-stop-points.page";
