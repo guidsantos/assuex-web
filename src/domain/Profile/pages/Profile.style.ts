@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const Card = styled.form`
-  display: flex;
+  display: grid;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-  height: 35rem;
+  height: auto;
   color: #fff;
   padding: 1rem;
   border-radius: 10px;
@@ -49,10 +49,7 @@ export const Card = styled.form`
     }
   }
   p {
-    font-size: 30px;
-    @media screen and (max-width: 980px) {
-      font-size: 20px;
-    }
+    font-size: 20px;
   }
 
   @media screen and (max-width: 980px) {

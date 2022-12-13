@@ -3,13 +3,10 @@ import { Card, Content } from "./QRCode.style";
 import { QRCodeSVG } from "qrcode.react";
 import Header from "../../../../common/components/header/header.component";
 import Breadcrumb from "../../../../common/components/breadcrumb/breadcrumb.component";
+import { useAuth } from "../../../../common/infra/hooks/Auth.hook";
 
 const QRCode: React.FC = () => {
-  const apiresponse = {
-    token: "www.google.com.br",
-    name: "Nome do passageiro",
-    linha: "Linha de interesse",
-  };
+  const { user } = useAuth();
 
   return (
     <>
@@ -24,9 +21,8 @@ const QRCode: React.FC = () => {
       <Content>
         <Card>
           <h1>Carteirinha Virtual</h1>
-          <QRCodeSVG value={apiresponse.token} size={240} />
-          <p>{apiresponse.name}</p>
-          <p>{apiresponse.linha}</p>
+          <QRCodeSVG value={user.token} size={240} />
+          <p>{user.name}</p>
         </Card>
       </Content>
     </>
