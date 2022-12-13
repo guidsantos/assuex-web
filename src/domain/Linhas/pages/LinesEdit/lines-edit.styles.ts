@@ -12,11 +12,11 @@ export const CardGrid = styled.div`
   width: 100%;
   padding: 3rem;
 
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
 `;
 
-export const CardContainer = styled.div`
-  width: 40rem;
+export const CardContainer = styled.form`
+  width: 50rem;
   height: 15rem;
   margin 4rem;
 
@@ -54,4 +54,16 @@ export const AddLineButton = styled.div`
   button:hover {
     color: #444;
   }
+`;
+
+export const SubmitButton = styled.button`
+  width: 10rem;
+  height: 3rem;
+  background: #49be25;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 1rem;
 `;

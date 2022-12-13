@@ -7,12 +7,14 @@ import { Route as AuthRoute } from "./Router.component";
 import QRCode from "../../../domain/QRCode/pages/QRcode/QRCode.pages";
 import Validation from "../../../domain/QRCode/pages/Validation/Validation.page";
 import Profile from "../../../domain/Profile/Profile.pages";
-import Linhas from "../../../domain/Linhas/pages/Linhas/linhas.page";
-import LinesEdit from "../../../domain/Linhas/pages/LinesEdit/lines-edit.page";
+import LinhasPage from "../../../domain/Linhas/pages/Linhas/linhas.page";
+import LinesEditPage from "../../../domain/Linhas/pages/LinesEdit/lines-edit.page";
+import LineStopPointsPage from "../../../domain/Linhas/pages/LineStopPoints/line-stop-points.page";
 
 export const RoutesFC: React.FC = () => {
   return (
     <Routes>
+      <Route path="" element={<SignIn />} />
       <Route path="/signin" element={<SignIn />} />
       <Route path="/signup" element={<SignUp />} />
       <Route
@@ -33,11 +35,16 @@ export const RoutesFC: React.FC = () => {
       />
       <Route
         path="/lines"
-        element={<AuthRoute isPrivate={true} outlet={<Linhas />} />}
+        element={<AuthRoute isPrivate={true} outlet={<LinhasPage />} />}
+      />
+
+      <Route
+        path="/lines/routes/:id"
+        element={<AuthRoute isPrivate={true} outlet={<LineStopPointsPage />} />}
       />
       <Route
         path="/lines/edit"
-        element={<AuthRoute isPrivate={true} outlet={<LinesEdit />} />}
+        element={<AuthRoute isPrivate={true} outlet={<LinesEditPage />} />}
       />
     </Routes>
   );

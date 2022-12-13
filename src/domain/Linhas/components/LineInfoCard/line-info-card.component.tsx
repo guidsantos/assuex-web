@@ -52,7 +52,7 @@ const LineInfoCard: React.FC<ILineInfoCard> = (props) => {
           </p>
           <p className="value">{props.data.bus}</p>
         </TextDiv>
-        <Link to="/linhas/rotas">
+        <Link to={`/lines/routes/${props.data.id}`}>
           <RoteLinkDiv>
             <img src={clockIcon} />
             <p>Rotas e horários</p>

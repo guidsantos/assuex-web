@@ -1,49 +1,52 @@
-import React from "react";
+import React, { useRef } from "react";
 import Breadcrumb from "../../../../common/components/breadcrumb/breadcrumb.component";
 import Header from "../../../../common/components/header/header.component";
-import LineInfoCard from "../../components/LineInfoCard/line-info-card.component";
-import { ILineInfo } from "../../types/line-info.type";
+
 import {
   CardContainer,
   CardGrid,
   Content,
   AddLineButton,
   HeadContent,
+  SubmitButton,
 } from "./lines-edit.styles";
 
-import {ReactComponent as PlusIcon} from "../../../../common/assets/plus-icon.svg";
+import { ReactComponent as PlusIcon } from "../../../../common/assets/plus-icon.svg";
+import { LineProvider, useLines } from "../../hook/line.hook";
+import AddLineModal from "../../components/addLineModal/add-line-modal.component";
+import LineEditInfoCard from "../../components/LineEditInfoCard/line-edit-info-card.component";
+import { useNavigate } from "react-router-dom";
 
 const LinesEdit: React.FC = () => {
-  const apiResponse = [
-    {
-      coordName: "Luiz Claudio",
-      lineName: "Alphaville 1",
-      startPoint: "Jundiai",
-      endPoint: "São Paulo",
-      bus: "13601",
-    },
-    {
-      coordName: "Luiz Claudio",
-      lineName: "Alphaville 2",
-      startPoint: "Itupeva",
-      endPoint: "São Paulo",
-      bus: "13601",
-    },
-    {
-      coordName: "Luiz Claudio",
-      lineName: "Alphaville 3",
-      startPoint: "Jundiai",
-      endPoint: "São Paulo",
-      bus: "13601",
-    },
-  ] as ILineInfo[];
+  const navigate = useNavigate();
 
-  const addLine = () => {
-    console.log("adicionar linha");
+  const {
+    getAllLines,
+    getModalVisible,
+    setModalVisible,
+    getUpdateLinesData,
+    updateLine,
+  } = useLines();
+
+  const updateLinesData = getUpdateLinesData();
+
+  const handleSubmit = () => {
+    if (updateLinesData.length > 0)
+      updateLinesData.map((lineData) => {
+        const { driver, stopPoints, ...res } = lineData;
+        updateLine(res);
+      });
+    navigate("/lines");
+  };
+
+  const allLines = getAllLines();
+  const openAddLineModal = () => {
+    setModalVisible();
   };
   return (
     <>
       <Header />
+      {getModalVisible() && <AddLineModal />}
       <HeadContent>
         <Breadcrumb
           paths={[
@@ -52,20 +55,22 @@ const LinesEdit: React.FC = () => {
             { path: "/lines/edit", label: "Editar linhas" },
           ]}
         />
+        <SubmitButton onClick={handleSubmit}>Salvar</SubmitButton>
       </HeadContent>
       <Content>
         <CardGrid>
-          {apiResponse.map((i) => (
-            <CardContainer>
+          {allLines.map((i, idx) => (
+            <CardContainer key={i.id}>
               <p>
-                <b>{i.lineName}</b>
+                <b>{i.name}</b>
               </p>
-              <LineInfoCard data={i} />
+              <LineEditInfoCard data={i} idx={idx} />
             </CardContainer>
           ))}
+
           <CardContainer>
             <AddLineButton>
-              <button onClick={() => addLine()}>
+              <button onClick={() => openAddLineModal()}>
                 <PlusIcon />
                 <p>Adicione uma linhas</p>
               </button>
@@ -77,4 +82,10 @@ const LinesEdit: React.FC = () => {
   );
 };
 
-export default LinesEdit;
+const LinesEditPage: React.FC = () => (
+  <LineProvider>
+    <LinesEdit />
+  </LineProvider>
+);
+
+export default LinesEditPage;

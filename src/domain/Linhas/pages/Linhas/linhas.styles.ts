@@ -16,7 +16,7 @@ export const CardGrid = styled.div`
 `;
 
 export const CardContainer = styled.div`
-  width: 40rem;
+  width: 50rem;
   height: 15rem;
 `;
 
