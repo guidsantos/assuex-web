@@ -1,7 +1,8 @@
 import React, { useCallback, useRef } from "react";
-import Breadcrumb from "../../common/components/breadcrumb/breadcrumb.component";
-import Header from "../../common/components/header/header.component";
+import Breadcrumb from "../../../common/components/breadcrumb/breadcrumb.component";
+import Header from "../../../common/components/header/header.component";
 import { Card, Content, User, Body } from "./Profile.style";
+import profileIcon from "../../../common/assets/profile-icon.svg";
 
 const Profile: React.FC = () => {
   const formRef = useRef(null);
@@ -18,8 +19,7 @@ const Profile: React.FC = () => {
     linha: "Linha de interesse",
   };
 
-  let profile_photo =
-    "https://cdn.pixabay.com/photo/2017/08/06/21/01/louvre-2596278_960_720.jpg";
+  let profile_photo = profileIcon;
 
   var loadFile = function(event: any) {
     var image = document.getElementById("output") as HTMLImageElement | null;
@@ -29,7 +29,12 @@ const Profile: React.FC = () => {
   return (
     <>
       <Header />
-      <Breadcrumb paths={[{path:"/home", label: "Home"}, {path:"/profile", label: "Profile"}]} />
+      <Breadcrumb
+        paths={[
+          { path: "/home", label: "Home" },
+          { path: "/profile", label: "Profile" },
+        ]}
+      />
       <Body>
         <Content>
           <User>
@@ -54,7 +59,9 @@ const Profile: React.FC = () => {
               <p>{apiresponse.linha}</p>
               <input type="token" />
             </div>
-            <button type="submit">Salvar</button>
+            <div>
+              <button type="submit">Salvar</button>
+            </div>
           </Card>
         </Content>
       </Body>

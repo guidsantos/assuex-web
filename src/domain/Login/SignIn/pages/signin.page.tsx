@@ -11,16 +11,11 @@ import React, { useCallback, useRef } from "react";
 import { useAuth } from "../../../../common/infra/hooks/Auth.hook";
 import { Link, useNavigate } from "react-router-dom";
 
-interface ISignInFormData {
-  email: String;
-  password: String;
-}
-
 const SignIn: React.FC = () => {
   const formRef = useRef(null);
   const navigate = useNavigate();
 
-  const { signIn, user } = useAuth();
+  const { signIn } = useAuth();
 
   const handleSubmit = useCallback(
     async (event: any) => {
