@@ -13,8 +13,10 @@ import {
 import editIcon from "../../../../common/assets/edit-icon.svg";
 import { Link } from "react-router-dom";
 import { useLines, LineProvider } from "../../hook/line.hook";
+import { useAuth } from "../../../../common/infra/hooks/Auth.hook";
 
 const Linhas: React.FC = () => {
+  const { user } = useAuth();
   const { getAllLines } = useLines();
 
   const allLines = getAllLines();
@@ -28,12 +30,16 @@ const Linhas: React.FC = () => {
             { path: "/lines", label: "Linhas" },
           ]}
         />
-        <Link to="edit" style={{ textDecoration: "none", color: "#000" }}>
-          <EditButton>
-            <img src={editIcon} />
-            <p>Edite as linhas</p>
-          </EditButton>
-        </Link>
+        {user.type === "ADMIN" ? (
+          <Link to="edit" style={{ textDecoration: "none", color: "#000" }}>
+            <EditButton>
+              <img src={editIcon} />
+              <p>Edite as linhas</p>
+            </EditButton>
+          </Link>
+        ) : (
+          <></>
+        )}
       </HeadContent>
       <Content>
         <CardGrid>
