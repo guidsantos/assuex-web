@@ -13,7 +13,6 @@ import {
 import editIcon from "../../../../common/assets/edit-icon.svg";
 import { Link } from "react-router-dom";
 import { useLines, LineProvider } from "../../hook/line.hook";
-import userEvent from "@testing-library/user-event";
 import { useAuth } from "../../../../common/infra/hooks/Auth.hook";
 
 const Linhas: React.FC = () => {
